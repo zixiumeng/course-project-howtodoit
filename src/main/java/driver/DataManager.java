@@ -8,7 +8,6 @@ import todoSystem.TodoSystem;
 import java.io.*;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * This class reads data from and writes data into local files.
@@ -21,10 +20,7 @@ public class DataManager implements DataAccessor {
      * the file should be name, dueday, description and project.
      * TODO: we can only store a project using string?
      */
-    public void readData(String filename) throws IOException {
-
-
-        File file = new File(filename);
+    public void readData(File file) throws IOException {
         FileReader reader = new FileReader(file);
         BufferedReader br = new BufferedReader(reader);
         String s;
@@ -50,20 +46,20 @@ public class DataManager implements DataAccessor {
     /**
      * This function add task to the given file
      */
-    public void writeData(File file) {
-        FileWriter f = null;
-        BufferedWriter writer = new BufferedWriter(f);
-        int count = 0;
-
-        Iterator<<Integer, String>> it = map.entrySet().iterator();
-        
+    public void writeData(File file) throws IOException {
+        PrintWriter pw = new PrintWriter(file);
+        for (Task task : this.todoSystem.getTasks().values()) {
+            String s = task.getName() + " " +
+                    task.getDueDate() + " " + task.getDescription() + " " + task.getProject().getprojectname();
+            pw.append(s).append("\n");
+        }
+        pw.close();
     }
-
-    /**
-     * the
-     * @return todoSystem
-     */
-    public TodoSystem getTodoSystem() {
-        return this.todoSystem;
+        /**
+         * the
+         * @return todoSystem
+         */
+        public TodoSystem getTodoSystem() {
+            return this.todoSystem;
+        }
     }
-}

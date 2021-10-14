@@ -18,6 +18,10 @@ public class Folder {
         this.tasks.put(task.getName(), task);
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public List<Task> viewTasks() {
         return null;
     }
