@@ -12,12 +12,14 @@ public class Folder {
     private boolean renameable;
 
     public Folder(String name, boolean renameable) {
-        this.name = name;
-        this.renameable = renameable;
     }
 
     public void addTask(Task task) {
         this.tasks.put(task.getName(), task);
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public List<Task> viewTasks() {
