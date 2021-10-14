@@ -12,8 +12,6 @@ public class Folder {
     private boolean renameable;
 
     public Folder(String name, boolean renameable) {
-        this.name = name;
-        this.renameable = renameable;
     }
 
     public void addTask(Task task) {

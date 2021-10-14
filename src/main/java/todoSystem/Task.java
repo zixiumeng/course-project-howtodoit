@@ -12,6 +12,13 @@ public class Task {
         this.description = description;
         this.project = project;
     }
+    public Task(String name, String dueDate, Project project) {
+        this.name = name;
+        this.dueDate = dueDate;
+        this.description = null;
+        this.project = project;
+    }
+
 
     public String getName() {
         return this.name;
