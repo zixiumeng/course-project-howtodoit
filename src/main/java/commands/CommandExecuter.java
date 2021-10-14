@@ -1,6 +1,5 @@
 package commands;
 
-import driver.DataAccessor;
 import constants.Commands;
 
 import java.util.*;
@@ -16,7 +15,7 @@ public class CommandExecuter {
      * @throws Exception when command is not found or when arguments are invalid
      */
     public String executeCommand(String userInput) throws Exception {
-        String[] inputArray = userInput.split(" ");
+        String[] inputArray = userInput.split(":"); // Use ":" to split arguments so that description can be long
         String userCommandName = inputArray[0];
         // Get the corresponding command object
         Executable command  = Commands.COMMANDS.getOrDefault(userCommandName, null);
