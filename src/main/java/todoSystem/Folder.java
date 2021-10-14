@@ -17,19 +17,23 @@ public class Folder implements Serializable {
     public Folder(String name, boolean renameable) {
     }
 
-    public void addTask(Task task) {
-        this.tasks.put(task.getName(), task);
-    }
-
     public String getName() {
         return this.name;
     }
 
-    public int getNumTasks() {
-        return this.tasks.size();
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void addTask(Task task) {
+        this.tasks.put(task.getName(), task);
+    }
+
+    public void delTask(Task task) {
+        this.tasks.remove(task.getName());
     }
 
     public List<Task> viewTasks() {
-        return new ArrayList<Task>(tasks.values());
+        return new ArrayList<>(tasks.values()); // TODO: sort the list in chronological order
     }
 }

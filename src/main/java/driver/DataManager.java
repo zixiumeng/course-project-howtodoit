@@ -13,7 +13,7 @@ public class DataManager implements DataAccessor {
     private TodoSystem todoSystem;
 
     /**
-     * This function reads data from local files and mutates todoSystem.
+     * This function reads data from local files and initializes todoSystem.
      */
     public void readData(File file) {
         try {

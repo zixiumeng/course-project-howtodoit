@@ -8,10 +8,10 @@ import todoSystem.TodoSystem;
 /**
  *
  */
-public class New implements Executable {
+public class NewTask implements Executable {
     private final DataAccessor dataAccessor;
 
-    public New(DataAccessor dataAccessor) {
+    public NewTask(DataAccessor dataAccessor) {
         this.dataAccessor = dataAccessor;
     }
 
@@ -22,7 +22,7 @@ public class New implements Executable {
      * @return a String indicating a new task has been added successfully
      */
     @Override
-    public String execute(String[] args) throws Exception {
+    public String execute(String[] args) {
         TodoSystem todoSystem = this.dataAccessor.getTodoSystem(); // Get access to entities
         try {
             checkArgs(todoSystem, args); // Check whether arguments are valid

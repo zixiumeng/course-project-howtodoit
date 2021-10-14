@@ -19,10 +19,8 @@ public class Todoit {
         CommandExecuter commandExecuter = new CommandExecuter();
         Commands.loadCommands(dataManager);
 
-        // Initialize data files using pre-defined file paths
-        File systemFile = new File(FilePaths.systemFilePath);
-
         // Read data from local files
+        File systemFile = new File(FilePaths.systemFilePath);
         dataManager.readData(systemFile);
 
         // Let user type their commands and execute them
