@@ -22,20 +22,34 @@ public class New implements Executable {
      * @return a String indicating a new task has been added successfully
      */
     @Override
-    public String execute(String[] args) {
-        // Get access to entities
-        TodoSystem todoSystem = this.dataAccessor.getTodoSystem();
+    public String execute(String[] args) throws Exception {
+        TodoSystem todoSystem = this.dataAccessor.getTodoSystem(); // Get access to entities
+        try {
+            checkArgs(todoSystem, args); // Check whether arguments are valid
+        } catch (Exception e) {
+            return "Task added unsuccessfully due to invalid arguments.";
+        }
+
         // Map user arguments to name, dueDate, description
         String name = args[0];
         String dueDate = args[1];
         String description = args[2];
-        // Get Inbox
-        Project inbox = todoSystem.getProjects().get("Inbox");
         // Create a new task with name, dueDate, and description, and add it to Inbox
+        Project inbox = todoSystem.getProjects().get("Inbox"); // Get Inbox
         Task task = new Task(name, dueDate, description, inbox);
         todoSystem.getTasks().put(name, task);
-        todoSystem.getProjects().get("Inbox").addTask(task);
+        inbox.addTask(task);
 
         return "Task added successfully.";
+    }
+
+    private void checkArgs(TodoSystem todoSystem, String[] args) throws Exception {
+        // TODO: create InvalidArgumentException
+        if (args.length != 3) {
+            throw new Exception("Wrong argument length!");
+        } else if (todoSystem.getTasks().containsKey(args[0])) {
+            throw new Exception("Task (with the same name) already existed. " +
+                    "We do not support duplicate tasks (for now).");
+        } // TODO: check whether due date is valid
     }
 }

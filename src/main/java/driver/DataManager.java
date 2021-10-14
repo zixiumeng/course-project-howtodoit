@@ -17,49 +17,61 @@ public class DataManager implements DataAccessor {
 
     /**
      * This function reads data from local files and mutates todoSystem.
-     * the file should be name, dueday, description and project.
-     * TODO: we can only store a project using string?
+     * The file should contain all projects and all tasks.
+     * Each project should have name and the number of tasks contained.
+     * Beneath each project, there should a list of tasks contained in that project (with "*" at the beginning).
+     * Each file should have name, due date, and description.
      */
     public void readData(File file) throws IOException {
         FileReader reader = new FileReader(file);
         BufferedReader br = new BufferedReader(reader);
-        String s;
-        while ((s=br.readLine())!= null){
-            String[] sl = s.split("");
-            if (todoSystem.getProjects().containsKey(sl[3])) {
-                Project pro = todoSystem.getProjects().get(sl[3]);
-                Task t = new Task(sl[0], sl[1], sl[2], pro);
-                pro.addTask(t);
-            }
-            else {
-                /* TODO: let the renamebable be true, may change after
+        String projLine;
+        while ((projLine = br.readLine()) != null) {
+            try {
+                String[] projLineArray = projLine.split(" ");
+                String projName = projLineArray[0];
+                int numTasks = Integer.parseInt(projLineArray[1]); // Get the number of tasks stored
+                boolean renameable = (projName.equals("Inbox"));
+                Project proj = new Project(projName, renameable); // Create a new project
+                this.todoSystem.getProjects().put(projName, proj); // Add it to TodoSystem
 
-                 */
-                Project new_pro = new Project(sl[3], true);
-                todoSystem.getProjects().put(sl[3], new_pro);
-                Task t = new Task(sl[0], sl[1], sl[2], new_pro);
-                new_pro.addTask(t);
+                // Add all the tasks contained in this project
+                for (int i = 0; i < numTasks; i++) {
+                    String[] taskLineArray = br.readLine().split(" ");
+                    Task task = new Task(taskLineArray[1], taskLineArray[2], taskLineArray[3], proj);
+                    todoSystem.getTasks().put(taskLineArray[0], task); // Add it to TodoSystem
+                    proj.addTask(task); // Add it to its project
+                }
+            } catch (Exception e) {
+                System.out.println("Your file is corrupted! Some if not all data is lost.");
             }
         }
     }
 
     /**
-     * This function add task to the given file
+     * This function writes data (tasks, projects...) into the given file.
      */
     public void writeData(File file) throws IOException {
         PrintWriter pw = new PrintWriter(file);
-        for (Task task : this.todoSystem.getTasks().values()) {
-            String s = task.getName() + " " +
-                    task.getDueDate() + " " + task.getDescription() + " " + task.getProject().getprojectname();
-            pw.append(s).append("\n");
+        for (Project proj : this.todoSystem.getProjects().values()) {
+            String projLine = proj.getName() + " " + proj.getNumTasks();
+            pw.append(projLine).append("\n"); // Write project info into the file
+            List<Task> tasks = proj.viewTasks();
+            // Now write all tasks contained in this project into the file
+            for (Task task : tasks) {
+                String taskLine = "* " + task.getName() + " " + task.getDueDate() + " " + task.getDescription();
+                pw.append(taskLine).append("\n");
+            }
         }
         pw.close();
     }
-        /**
-         * the
-         * @return todoSystem
-         */
-        public TodoSystem getTodoSystem() {
-            return this.todoSystem;
-        }
+
+    /**
+     * This function returns the TodoSystem (it's the one defined by the interface DataAccessor).
+     * @return todoSystem
+     */
+    @Override
+    public TodoSystem getTodoSystem() {
+        return this.todoSystem;
     }
+}
