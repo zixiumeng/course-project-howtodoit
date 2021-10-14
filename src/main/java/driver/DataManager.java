@@ -15,7 +15,7 @@ public class DataManager implements DataAccessor {
     /**
      * This function reads data from local files and initializes todoSystem.
      */
-    public void readData(File file) {
+    public void readData() {
         try {
             FileInputStream fileIn = new FileInputStream(systemFilePath);
             ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -35,7 +35,7 @@ public class DataManager implements DataAccessor {
     /**
      * This function writes data (tasks, projects...) into the given file.
      */
-    public void writeData(File file){
+    public void writeData(){
         try {
             FileOutputStream fileOut = new FileOutputStream(systemFilePath);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);

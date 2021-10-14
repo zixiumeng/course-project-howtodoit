@@ -20,8 +20,7 @@ public class Todoit {
         Commands.loadCommands(dataManager);
 
         // Read data from local files
-        File systemFile = new File(FilePaths.systemFilePath);
-        dataManager.readData(systemFile);
+        dataManager.readData();
 
         // Let user type their commands and execute them
         Scanner in = new Scanner(System.in);
@@ -38,6 +37,6 @@ public class Todoit {
         }
 
         // Write data into local files and exit the system
-        dataManager.writeData(systemFile);
+        dataManager.writeData();
     }
 }
