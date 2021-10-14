@@ -46,10 +46,9 @@ public class New implements Executable {
     private void checkArgs(TodoSystem todoSystem, String[] args) throws Exception {
         // TODO: create InvalidArgumentException
         if (args.length != 3) {
-            throw new Exception("Wrong argument length!");
+            throw new Exception(); // Wrong argument length
         } else if (todoSystem.getTasks().containsKey(args[0])) {
-            throw new Exception("Task (with the same name) already existed. " +
-                    "We do not support duplicate tasks (for now).");
+            throw new Exception(); // Task (with the same name) already exists
         } // TODO: check whether due date is valid
     }
 }

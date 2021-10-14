@@ -1,11 +1,12 @@
 package todoSystem;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
- *
+ * This class stores all system objects such as tasks, projects, and labels.
  */
-public class TodoSystem {
+public class TodoSystem implements Serializable {
     private final HashMap<String, Task> tasks = new HashMap<>();
     private final HashMap<String, Project> projects = new HashMap<>();
     private final HashMap<String, Label> labels = new HashMap<>();

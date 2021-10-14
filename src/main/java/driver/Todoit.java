@@ -5,7 +5,6 @@ import constants.Commands;
 import constants.FilePaths;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -13,24 +12,23 @@ import java.util.Scanner;
  */
 public class Todoit {
     public static void main(String[] args) {
+        System.out.println("Welcome to our virtual to-do-list system (version 0).");
+
         // Initialize dataManager and commandExecuter
         DataManager dataManager = new DataManager();
         CommandExecuter commandExecuter = new CommandExecuter();
         Commands.loadCommands(dataManager);
 
         // Initialize data files using pre-defined file paths
-        File projectsFile = new File(FilePaths.projectsPath);
+        File systemFile = new File(FilePaths.systemFilePath);
 
         // Read data from local files
-        try {
-            dataManager.readData(projectsFile);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        dataManager.readData(systemFile);
 
         // Let user type their commands and execute them
         Scanner in = new Scanner(System.in);
         while (true) {
+            System.out.print("User command: ");
             String userInput = in.nextLine();
             if (userInput.equals("Exit")) break;
             try {
@@ -42,10 +40,6 @@ public class Todoit {
         }
 
         // Write data into local files and exit the system
-        try {
-            dataManager.writeData(projectsFile);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        dataManager.writeData(systemFile);
     }
 }
