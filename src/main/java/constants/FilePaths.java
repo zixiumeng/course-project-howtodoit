@@ -5,5 +5,5 @@ package constants;
  */
 public class FilePaths {
     public static String userDirectory = System.getProperty("user.dir");
-    public static final String projectsPath = userDirectory + "\\projects";
+    public static final String systemFilePath = userDirectory + "/system.ser";
 }

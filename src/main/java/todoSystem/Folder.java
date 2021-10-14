@@ -1,13 +1,15 @@
 package todoSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /**
- *
+ * This class stores a collection of tasks.
+ * TODO: use iterater design pattern
  */
-public class Folder {
+public class Folder implements Serializable {
     private String name;
     private final HashMap<String, Task> tasks = new HashMap<>();
     private boolean renameable;

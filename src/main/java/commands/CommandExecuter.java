@@ -24,7 +24,7 @@ public class CommandExecuter {
             String[] args = getArguments(inputArray); // Get user arguments
             return command.execute(args); // Execute the command
         } else {
-            throw new Exception("Command not found!"); // TODO: define CommandNotFoundExcpetion
+            throw new Exception("Command not found!"); // TODO: create CommandNotFoundExcpetion
         }
     }
 
