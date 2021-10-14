@@ -1,5 +1,6 @@
 package todoSystem;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  */
 public class Folder {
     private String name;
-    private HashMap<String, Task> tasks;
+    private final HashMap<String, Task> tasks = new HashMap<>();
     private boolean renameable;
 
     public Folder(String name, boolean renameable) {
@@ -22,7 +23,11 @@ public class Folder {
         return this.name;
     }
 
+    public int getNumTasks() {
+        return this.tasks.size();
+    }
+
     public List<Task> viewTasks() {
-        return null;
+        return new ArrayList<Task>(tasks.values());
     }
 }
