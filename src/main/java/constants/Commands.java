@@ -14,8 +14,8 @@ public class Commands {
         COMMANDS.put("newtask", new NewTask());
         COMMANDS.put("rename", new Rename());
         COMMANDS.put("reproj", new Reproj());
-
-
+        COMMANDS.put("star", new Reproj());
+        COMMANDS.put("rnproj", new Reproj());
         COMMANDS.put("mkproj", new NewProj());
 
         // TODO: add more commands and create those classes!
