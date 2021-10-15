@@ -14,8 +14,10 @@ public class Commands {
      */
     public static void loadCommands() {
         COMMANDS.put("newtask", new NewTask());
+        COMMANDS.put("rename", new NewTask());
         COMMANDS.put("reproj", new Reproj());
         // TODO: add more commands and create those classes!
+
 
     }
 }
