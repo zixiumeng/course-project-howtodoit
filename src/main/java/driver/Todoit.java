@@ -14,10 +14,10 @@ public class Todoit {
     public static void main(String[] args) {
         System.out.println("Welcome to our virtual to-do-list system (version 0).");
 
-        // Initialize dataManager and commandExecuter
+        // Initialize DataManager and CommandExecuter
         DataManager dataManager = new DataManager();
         CommandExecuter commandExecuter = new CommandExecuter();
-        Commands.loadCommands(dataManager);
+        Commands.loadCommands(dataManager); // Initialize commands
 
         // Read data from local files
         dataManager.readData();
@@ -27,7 +27,7 @@ public class Todoit {
         while (true) {
             System.out.print("User command: ");
             String userInput = in.nextLine();
-            if (userInput.equals("Exit")) break;
+            if (userInput.equals("exit")) break;
             try {
                 String output = commandExecuter.executeCommand(userInput);
                 System.out.println(output);

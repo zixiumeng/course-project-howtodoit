@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * This class stores a collection of tasks.
- * TODO: use iterater design pattern
  */
 public class Folder implements Serializable {
     private String name;
@@ -34,6 +33,6 @@ public class Folder implements Serializable {
     }
 
     public List<Task> viewTasks() {
-        return new ArrayList<>(tasks.values()); // TODO: sort the list in chronological order
+        return new ArrayList<>(tasks.values()); // TODO: sort the list in chronological order, maybe use iterator
     }
 }
