@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * This class initializes and executes commands.
  */
-public class CommandExecuter {
+public class CommandExecutor {
     /**
      *
      * @param userInput exactly what the user typed

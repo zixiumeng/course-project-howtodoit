@@ -1,22 +1,20 @@
 package driver;
 
-import commands.CommandExecuter;
+import commands.CommandExecutor;
 import constants.Commands;
-import constants.FilePaths;
 
-import java.io.File;
 import java.util.Scanner;
 
 /**
  * This is where our program will be run.
  */
-public class Todoit {
+public class HowTodoit {
     public static void main(String[] args) {
-        System.out.println("Welcome to our virtual to-do-list system (version 0).");
+        System.out.println("Welcome to HowTodoit: our virtual to-do-list system (version 0).");
 
         // Initialize DataManager, CommandExecuter, and all commands
         DataManager dataManager = new DataManager();
-        CommandExecuter commandExecuter = new CommandExecuter();
+        CommandExecutor commandExecutor = new CommandExecutor();
         Commands.loadCommands();
 
         // Read data from local files
@@ -29,7 +27,7 @@ public class Todoit {
             String userInput = in.nextLine();
             if (userInput.equals("exit")) break;
             try {
-                String output = commandExecuter.executeCommand(dataManager, userInput);
+                String output = commandExecutor.executeCommand(dataManager, userInput);
                 System.out.println(output);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
