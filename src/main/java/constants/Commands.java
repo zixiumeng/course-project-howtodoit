@@ -1,8 +1,6 @@
 package constants;
 
-import commands.Executable;
-import commands.NewTask;
-import commands.Reproj;
+import commands.*;
 
 import java.util.HashMap;
 
@@ -16,6 +14,8 @@ public class Commands {
         COMMANDS.put("newtask", new NewTask());
         COMMANDS.put("rename", new NewTask());
         COMMANDS.put("reproj", new Reproj());
+        COMMANDS.put("star", new Reproj());
+        COMMANDS.put("rnproj", new Reproj());
         // TODO: add more commands and create those classes!
 
 
