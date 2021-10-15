@@ -9,21 +9,15 @@ import todoSystem.TodoSystem;
  *
  */
 public class NewTask implements Executable {
-    private final DataAccessor dataAccessor;
-
-    public NewTask(DataAccessor dataAccessor) {
-        this.dataAccessor = dataAccessor;
-    }
 
     /**
-     * This function executes the New command: create a new task with given params and add it to Inbox.
-     * If the same task (with the same name) already exists in the system,
+     * This function executes the newtask command: create a new task with given params and add it to Inbox.
      * @param args a list of Strings with length 3, representing user arguments to the New command
      * @return a String indicating a new task has been added successfully
      */
     @Override
-    public String execute(String[] args) throws Exception {
-        TodoSystem todoSystem = this.dataAccessor.getSystem(); // Get access to entities
+    public String execute(DataAccessor dataAccessor, String[] args) throws Exception {
+        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
         checkArgs(todoSystem, args); // Check whether arguments are valid
 
         // Map user arguments to name, dueDate, description
