@@ -5,6 +5,8 @@ import todoSystem.Project;
 import todoSystem.Task;
 import todoSystem.TodoSystem;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 /**
  *
  */
@@ -18,6 +20,7 @@ public class NewTask implements Executable {
     /**
      * This function executes the New command: create a new task with given params and add it to Inbox.
      * If the same task (with the same name) already exists in the system,
+     * The due day should be after the current time and have length of 8, in the format of YYYY-MM-DD.
      * @param args a list of Strings with length 3, representing user arguments to the New command
      * @return a String indicating a new task has been added successfully
      */
@@ -44,6 +47,25 @@ public class NewTask implements Executable {
             throw new Exception("Wrong argument length.");
         } else if (todoSystem.getTasks().containsKey(args[0])) {
             throw new Exception("Task (with the same name) already exists.");
-        } // TODO: check whether due date is valid
+        } else if (!(checkDue(args[1]))) {
+            throw new Exception("Due day with wrong format, should be YYYY-MM-dd");
+        } else if (LocalDate.parse(args[1]).isBefore(LocalDate.now())) {
+            throw new Exception("This task is already overdue");
+        };
+            // TODO: check whether due date is valid
+
+    }
+
+    private boolean checkDue(String s) {
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            //If we want the format of string to be formal, use false. Otherwise, use true.
+            sd.setLenient(true);
+            sd.parse(s);
+        }
+        catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }
