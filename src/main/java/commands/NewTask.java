@@ -17,7 +17,7 @@ public class NewTask implements Executable {
      * This function executes the newtask command: create a new task with given params and add it to Inbox.
      * The task must not already exist in the system.
      * The due day should be after the current time and have length of 8, in the format of YYYY-MM-DD.
-     * @param args a list of Strings with length 3, representing user arguments to the New command
+     * @param args a list of Strings with length 3, representing user arguments
      * @return a String indicating a new task has been added successfully
      */
     @Override
