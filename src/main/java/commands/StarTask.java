@@ -19,6 +19,7 @@ public class StarTask implements Executable{
 
         // Map user arguments to name
         String name = args[0];
+        // Add the task to Starred
         Task task = todoSystem.getTasks().get(name);
         Label starred = todoSystem.getLabels().get("Starred");
         starred.addTask(task);
