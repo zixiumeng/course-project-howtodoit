@@ -46,4 +46,9 @@ public class Task implements Serializable {
     public void setProject(Project project) {
         this.project = project;
     }
+
+    @Override
+    public String toString() {
+        return this.name + ": due on " + this.dueDate + ". " + this.description;
+    }
 }
