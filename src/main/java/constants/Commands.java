@@ -14,7 +14,7 @@ public class Commands {
      * @param dataAccessor the interface that provides access to entities, essential to use cases (commands)
      */
     public static void loadCommands(DataAccessor dataAccessor) {
-        COMMANDS.put("New", new NewTask(dataAccessor));
+        COMMANDS.put("newtask", new NewTask(dataAccessor));
         // TODO: add more commands and create those classes!
 
     }

@@ -15,23 +15,15 @@ public class CommandExecuter {
      * @throws Exception when command is not found or when arguments are invalid
      */
     public String executeCommand(String userInput) throws Exception {
-        String[] inputArray = userInput.split(":"); // Use ":" to split arguments so that description can be long
+        String[] inputArray = userInput.split(";"); // Use ";" to split user input String
         String userCommandName = inputArray[0];
         // Get the corresponding command object
         Executable command  = Commands.COMMANDS.getOrDefault(userCommandName, null);
         if (command != null) {
-            String[] args = getArguments(inputArray); // Get user arguments
+            String[] args = Arrays.copyOfRange(inputArray, 1, inputArray.length); // Get user arguments
             return command.execute(args); // Execute the command
         } else {
-            throw new Exception("Command not found!"); // TODO: create CommandNotFoundExcpetion
-        }
-    }
-
-    private String[] getArguments(String[] inputArray) {
-        if (inputArray.length > 1) {
-            return Arrays.copyOfRange(inputArray, 1, inputArray.length);
-        } else {
-            return null;
+            throw new Exception("Command not found!");
         }
     }
 }

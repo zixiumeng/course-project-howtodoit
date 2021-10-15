@@ -53,7 +53,7 @@ public class DataManager implements DataAccessor {
      * @return todoSystem
      */
     @Override
-    public TodoSystem getTodoSystem() {
+    public TodoSystem getSystem() {
         return this.todoSystem;
     }
 }

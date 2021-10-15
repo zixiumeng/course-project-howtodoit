@@ -22,13 +22,9 @@ public class NewTask implements Executable {
      * @return a String indicating a new task has been added successfully
      */
     @Override
-    public String execute(String[] args) {
-        TodoSystem todoSystem = this.dataAccessor.getTodoSystem(); // Get access to entities
-        try {
-            checkArgs(todoSystem, args); // Check whether arguments are valid
-        } catch (Exception e) {
-            return "Task added unsuccessfully due to invalid arguments.";
-        }
+    public String execute(String[] args) throws Exception {
+        TodoSystem todoSystem = this.dataAccessor.getSystem(); // Get access to entities
+        checkArgs(todoSystem, args); // Check whether arguments are valid
 
         // Map user arguments to name, dueDate, description
         String name = args[0];
@@ -44,11 +40,10 @@ public class NewTask implements Executable {
     }
 
     private void checkArgs(TodoSystem todoSystem, String[] args) throws Exception {
-        // TODO: create InvalidArgumentException
         if (args.length != 3) {
-            throw new Exception(); // Wrong argument length
+            throw new Exception("Wrong argument length.");
         } else if (todoSystem.getTasks().containsKey(args[0])) {
-            throw new Exception(); // Task (with the same name) already exists
+            throw new Exception("Task (with the same name) already exists.");
         } // TODO: check whether due date is valid
     }
 }
