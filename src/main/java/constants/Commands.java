@@ -1,8 +1,7 @@
 package constants;
 
-import commands.NewTask;
 import commands.Executable;
-import driver.DataAccessor;
+import commands.NewTask;
 
 import java.util.HashMap;
 
@@ -11,10 +10,9 @@ public class Commands {
 
     /**
      * This class loads all commands.
-     * @param dataAccessor the interface that provides access to entities, essential to use cases (commands)
      */
-    public static void loadCommands(DataAccessor dataAccessor) {
-        COMMANDS.put("newtask", new NewTask(dataAccessor));
+    public static void loadCommands() {
+        COMMANDS.put("newtask", new NewTask());
         // TODO: add more commands and create those classes!
 
     }

@@ -3,5 +3,5 @@ package commands;
 import driver.DataAccessor;
 
 public interface Executable {
-    String execute(String[] args) throws Exception;
+    String execute(DataAccessor dataAccessor, String[] args) throws Exception;
 }
