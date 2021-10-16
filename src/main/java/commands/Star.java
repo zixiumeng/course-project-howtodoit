@@ -25,6 +25,6 @@ public class Star implements Executable{
         starred.addTask(task);
         task.getLabels().add(starred);
 
-        return "Task added to Starred successfully.";
+        return "Task <" + name + "> has been added to label <Starred> successfully.";
     }
 }
