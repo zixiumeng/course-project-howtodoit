@@ -22,7 +22,7 @@ public class Reproj implements Executable {
         String projName = args[1];
         // Move task to a different project
         Task task = todoSystem.getTasks().get(taskName); // Get task
-        task.getProject().delTask(task); // Delete task from current project
+        task.getProject().delTask(taskName); // Delete task from current project
         Project newProj = todoSystem.getProjects().get(projName); // Get new project
         newProj.addTask(task); // Add task to new project
         task.setProject(newProj);

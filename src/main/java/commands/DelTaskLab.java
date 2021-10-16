@@ -2,10 +2,9 @@ package commands;
 
 import driver.DataAccessor;
 import todoSystem.Label;
-import todoSystem.Task;
 import todoSystem.TodoSystem;
 
-public class TaskLabDel implements Executable {
+public class DelTaskLab implements Executable {
 
     @Override
     public String execute(DataAccessor dataAccessor, String[] args) {
@@ -16,9 +15,8 @@ public class TaskLabDel implements Executable {
         String taskName = args[0];
         String labName = args[1];
         // Remove task from label
-        Task task = todoSystem.getTasks().get(taskName);
         Label label = todoSystem.getLabels().get(labName);
-        label.delTask(task);
+        label.delTask(taskName);
 
         return "Task <" + taskName + "> has been removed from label <" + labName + "> successfully.";
     }

@@ -2,21 +2,15 @@ package todoSystem;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
-import helper.chronological;
 /**
  * This class stores a collection of tasks.
  */
 public class Folder implements Serializable {
     private String name;
     private final HashMap<String, Task> tasks = new HashMap<>();
-    private boolean renameable;
 
-    public Folder(String name, boolean renameable) {
-    }
-
-    public String getName() {
-        return this.name;
+    public Folder(String name) {
+        this.name = name;
     }
 
     public void setName(String name) {
@@ -31,11 +25,7 @@ public class Folder implements Serializable {
         this.tasks.put(task.getName(), task);
     }
 
-    public void delTask(Task task) {
-        this.tasks.remove(task.getName());
-    }
-
-    public List<Task> viewTasks() {
-        return chronological.task_in_ch_order(this.tasks);
+    public void delTask(String name) {
+        this.tasks.remove(name);
     }
 }

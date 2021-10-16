@@ -5,7 +5,7 @@ import todoSystem.TodoSystem;
 import todoSystem.Label;
 import todoSystem.Task;
 
-public class TaskLabAdd implements Executable {
+public class AddTaskLab implements Executable {
 
     @Override
     public String execute(DataAccessor dataAccessor, String[] args) {
