@@ -5,6 +5,9 @@ import todoSystem.Label;
 import todoSystem.Task;
 import todoSystem.TodoSystem;
 
+/**
+ * This class stars a task.
+ */
 public class Star implements Executable{
     /**
      * This function executes the star command: Add a task called <name> to Starred label
@@ -17,7 +20,7 @@ public class Star implements Executable{
         TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
         // checkArgs(todoSystem, name); // Check whether argument are valid
 
-        // Map user arguments to name
+        // Map user arguments to task name
         String name = args[0];
         // Add the task to Starred
         Task task = todoSystem.getTasks().get(name);
