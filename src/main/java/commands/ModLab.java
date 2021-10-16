@@ -4,6 +4,9 @@ import driver.DataAccessor;
 import todoSystem.Label;
 import todoSystem.TodoSystem;
 
+/**
+ * This class renames a label.
+ */
 public class ModLab implements Executable{
     /**
      * This function executes the modlab command: change a label’s name from <name1> to <name2>

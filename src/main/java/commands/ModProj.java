@@ -4,6 +4,9 @@ import driver.DataAccessor;
 import todoSystem.Project;
 import todoSystem.TodoSystem;
 
+/**
+ * This class renames a project.
+ */
 public class ModProj implements Executable{
     /**
      * This function executes the modproj command: change a project’s name from <name1> to <name2>

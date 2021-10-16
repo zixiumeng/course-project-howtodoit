@@ -4,6 +4,9 @@ import commands.*;
 
 import java.util.HashMap;
 
+/**
+ * This class stores and initializes all Executable objects.
+ */
 public class Commands {
     public static final HashMap<String, Executable> COMMANDS = new HashMap<>();
 
@@ -12,12 +15,13 @@ public class Commands {
      */
     public static void loadCommands() {
         COMMANDS.put("newtask", new NewTask());
+        COMMANDS.put("upcoming", new Upcoming());
         COMMANDS.put("completetask", new CompleteTask());
+        COMMANDS.put("star", new Star());
         COMMANDS.put("rename", new Rename());
         COMMANDS.put("retime", new Retime());
         COMMANDS.put("redesc", new Redesc());
         COMMANDS.put("reproj", new Reproj());
-        COMMANDS.put("star", new Star());
         COMMANDS.put("addtasklab", new AddTaskLab());
         COMMANDS.put("deltasklab", new DelTaskLab());
 

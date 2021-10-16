@@ -3,29 +3,33 @@ package commands;
 import driver.DataAccessor;
 import todoSystem.Task;
 import todoSystem.TodoSystem;
-import helper.chronological;
+import helpers.ChronologicalSort;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * This class shows all upcoming tasks.
+ */
 public class Upcoming implements Executable {
 
     /**
-     * This function executes the Upcoming command: List the tasks in chronological order
+     * This function executes the upcoming command: list all tasks in chronological order
      *
-     * @param args a list of Strings with length 1, representing the completed task
-     * @return a String indicating the completed task has been deleted.
+     * @param args a list of Strings with length 0, representing user arguments
+     * @return a String of all tasks in chronological order
      */
 
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) throws Exception {
-        TodoSystem todoSystem = dataAccessor.getSystem();
-        HashMap<String, Task> map = todoSystem.getTasks();
-        List<Task> list = chronological.task_in_ch_order(map);
-        for (Task t: list) {
-            System.out.println(t.toString() + '\n');
+    public String execute(DataAccessor dataAccessor, String[] args) {
+        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
+
+        HashMap<String, Task> tasks = todoSystem.getTasks(); // Get all tasks
+        List<Task> list = ChronologicalSort.tasks_in_ch_order(tasks); // Sort them
+        StringBuilder output = new StringBuilder();
+        for (Task task: list) {
+            output.append(task.toString()).append('\n'); // Each line will be a task
         }
-        return "Tasks are printed in chronological order";
+        return output.toString();
     }
 }

@@ -23,6 +23,7 @@ public class Star implements Executable{
         Task task = todoSystem.getTasks().get(name);
         Label starred = todoSystem.getLabels().get("Starred");
         starred.addTask(task);
+        task.getLabels().add(starred);
 
         return "Task added to Starred successfully.";
     }
