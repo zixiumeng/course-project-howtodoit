@@ -2,6 +2,7 @@ package todoSystem;
 
 import java.io.Serializable;
 import java.util.HashMap;
+
 /**
  * This class stores a collection of tasks.
  */
@@ -11,6 +12,10 @@ public class Folder implements Serializable {
 
     public Folder(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {

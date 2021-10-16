@@ -5,6 +5,9 @@ import todoSystem.TodoSystem;
 import todoSystem.Label;
 import todoSystem.Task;
 
+/**
+ * This class adds a task to a label.
+ */
 public class AddTaskLab implements Executable {
 
     @Override
@@ -19,6 +22,7 @@ public class AddTaskLab implements Executable {
         Task task = todoSystem.getTasks().get(taskName);
         Label label = todoSystem.getLabels().get(labName);
         label.addTask(task);
+        task.getLabels().add(label);
 
         return "Task <" + taskName + "> has been added to label <" + labName + "> successfully.";
     }

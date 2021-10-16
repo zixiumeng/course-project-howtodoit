@@ -3,6 +3,9 @@ package commands;
 import driver.DataAccessor;
 import todoSystem.TodoSystem;
 
+/**
+ * This class creates a new project
+ */
 public class NewProj implements Executable {
 
     /**

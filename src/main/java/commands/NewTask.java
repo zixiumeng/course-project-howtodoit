@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 /**
- *
+ * This class creates a new task.
  */
 public class NewTask implements Executable {
 

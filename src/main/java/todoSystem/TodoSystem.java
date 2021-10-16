@@ -1,6 +1,7 @@
 package todoSystem;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -35,9 +36,14 @@ public class TodoSystem implements Serializable {
     }
 
     public void delTask(String name) {
-        this.tasks.get(name).getProject().delTask(name);
-        // also need to remove this task from its label
-        this.tasks.remove(name);
+        Task task = this.tasks.get(name);
+        task.getProject().delTask(name); // Delete task from its project
+        // Delete task from all the labels it's in
+        ArrayList<Label> labels = task.getLabels();
+        for (Label label : labels) {
+            label.delTask(name);
+        }
+        this.tasks.remove(name); // Delete task from the system
     }
 
     public void addProj(String name) {
@@ -45,6 +51,9 @@ public class TodoSystem implements Serializable {
     }
 
     public void delProj(String name) {
+        Project project = this.projects.get(name);
+        Project inbox = this.projects.get("Inbox");
+        inbox.getTasks().putAll(project.getTasks()); // Move all tasks in this project to Inbox
         this.projects.remove(name);
     }
 
@@ -53,6 +62,12 @@ public class TodoSystem implements Serializable {
     }
 
     public void delLab(String name) {
+        Label label = this.labels.get(name);
+        // Remove this label from all tasks it contains
+        for (String taskName : label.getTasks().keySet()) {
+            Task task = this.tasks.get(taskName);
+            task.getLabels().remove(label);
+        }
         this.labels.remove(name);
     }
 }

@@ -4,6 +4,9 @@ import driver.DataAccessor;
 import todoSystem.Task;
 import todoSystem.TodoSystem;
 
+/**
+ * This class renames a task.
+ */
 public class Rename implements Executable{
 
     /**

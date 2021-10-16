@@ -3,6 +3,9 @@ package commands;
 import driver.DataAccessor;
 import todoSystem.TodoSystem;
 
+/**
+ * This class creates a new label.
+ */
 public class NewLab implements Executable {
 
     /**

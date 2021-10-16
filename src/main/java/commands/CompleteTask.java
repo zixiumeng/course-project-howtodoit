@@ -3,6 +3,9 @@ package commands;
 import driver.DataAccessor;
 import todoSystem.TodoSystem;
 
+/**
+ * This class deletes a completed task.
+ */
 public class CompleteTask implements Executable {
 
     /**
