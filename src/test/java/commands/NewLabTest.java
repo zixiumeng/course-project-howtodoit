@@ -20,7 +20,7 @@ class NewLabTest {
     public void testSuccesslyAddedLabel() {
         try {
             String[] args = {"CS"};
-            newlabCommand.execute(this.dataAccessor, args);
+            this.newlabCommand.execute(this.dataAccessor, args);
             // Check that the system has this label
             assertTrue(this.dataAccessor.getSystem().getLabels().containsKey("CS"),
                     "Failure: label has not been added successfully");
