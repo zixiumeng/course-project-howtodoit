@@ -23,6 +23,10 @@ public class Folder implements Serializable {
         this.name = name;
     }
 
+    public HashMap<String, Task> getTasks() {
+        return tasks;
+    }
+
     public void addTask(Task task) {
         this.tasks.put(task.getName(), task);
     }
@@ -34,5 +38,4 @@ public class Folder implements Serializable {
     public List<Task> viewTasks() {
         return chronological.task_in_ch_order(this.tasks);
     }
-
 }
