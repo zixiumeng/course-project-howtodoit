@@ -29,10 +29,14 @@ public class Commands {
         COMMANDS.put("newproj", new NewProj());
         COMMANDS.put("modproj", new ModProj());
         COMMANDS.put("delproj", new DelProj());
+        COMMANDS.put("viewproj", new ViewProj());
+        COMMANDS.put("listproj", new ListProj());
 
         COMMANDS.put("newlab", new NewLab());
         COMMANDS.put("modlab", new ModLab());
         COMMANDS.put("dellab", new DelLab());
+        COMMANDS.put("viewlab", new ViewLab());
+        COMMANDS.put("listlab", new ListLab());
 
 
     }
