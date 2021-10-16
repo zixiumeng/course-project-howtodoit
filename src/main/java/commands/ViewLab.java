@@ -5,12 +5,14 @@ import todoSystem.Label;
 import todoSystem.TodoSystem;
 import todoSystem.Task;
 
-import java.util.ArrayList;
 import java.util.List;
-import helpers.ChronologicalSort;
-
 import java.util.HashMap;
 
+import helpers.ChronologicalSort;
+
+/**
+ * This class lists all tasks contained in a label.
+ */
 public class ViewLab implements Executable {
 
     @Override
@@ -18,18 +20,16 @@ public class ViewLab implements Executable {
         TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 
-        Label lab = todoSystem.getLabels().get(args[0]);
-        HashMap<String, Task> tasks = lab.getTasks();
-        List<Task> viewable = ChronologicalSort.tasks_in_ch_order(tasks);
-        ArrayList<String> namelist = new ArrayList<>();
-
-        for (Task task : viewable) {
-            namelist.add(task.getName());
+        // Map user arguments to label name
+        String name = args[0];
+        // Get label and sort its tasks
+        Label lab = todoSystem.getLabels().get(name);
+        HashMap<String, Task> tasks = lab.getTasks(); // Get all tasks from this project
+        List<Task> sortedTasks = ChronologicalSort.tasks_in_ch_order(tasks); // Sort them
+        StringBuilder output = new StringBuilder("This label <" + name + "> contains the following tasks:\n");
+        for (Task task : sortedTasks) {
+            output.append(task.toString()).append('\n'); // Each line will be a task
         }
-
-        String f = namelist.toString();
-        return "This label " + args[0] + " contains the following tasks: <" + f + ">.";
-
-
+        return output.toString();
     }
 }

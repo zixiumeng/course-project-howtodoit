@@ -25,9 +25,9 @@ public class Upcoming implements Executable {
         TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
 
         HashMap<String, Task> tasks = todoSystem.getTasks(); // Get all tasks
-        List<Task> list = ChronologicalSort.tasks_in_ch_order(tasks); // Sort them
+        List<Task> sortedTasks = ChronologicalSort.tasks_in_ch_order(tasks); // Sort them
         StringBuilder output = new StringBuilder();
-        for (Task task: list) {
+        for (Task task: sortedTasks) {
             output.append(task.toString()).append('\n'); // Each line will be a task
         }
         return output.toString();

@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * This class lists all labels.
+ */
 public class ListLab implements Executable {
 
     @Override
@@ -17,13 +20,12 @@ public class ListLab implements Executable {
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 
         HashMap<String, Label> labels = todoSystem.getLabels();
-        Set<String> nameSet = labels.keySet();
-        List<String> f = nameSet.stream().sorted().collect(Collectors.toList());
-        f.remove("Starred");
-        f.add(0, "Starred");
+        Set<String> labNames = labels.keySet(); // Get all label names
+        List<String> sortedNames = labNames.stream().sorted().collect(Collectors.toList()); // Sort them
+        // Put Starred at the beginning
+        sortedNames.remove("Starred");
+        sortedNames.add(0, "Starred");
 
-        return "The following labels are in howtodoit now: " + f + ".";
-
-
+        return "The following labels are in HowTodoit: <" + sortedNames + ">.";
     }
 }
