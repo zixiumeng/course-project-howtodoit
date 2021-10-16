@@ -27,8 +27,5 @@ public class Rename implements Executable{
         return "Task renamed successfully.";
     }
 
-//    private void checkArgs(TodoSystem todoSystem, String[] args) throws Exception {
-//
-//    }
 }
 

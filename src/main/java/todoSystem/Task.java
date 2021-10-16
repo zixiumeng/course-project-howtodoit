@@ -23,10 +23,6 @@ public class Task implements Serializable {
         return this.dueDate;
     }
 
-    public String getDescription() {
-        return this.description;
-    }
-
     public Project getProject() {
         return project;
     }
