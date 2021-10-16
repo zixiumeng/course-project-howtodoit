@@ -10,7 +10,7 @@ import static constants.FilePaths.systemFilePath;
  * This class reads data from and writes data into local files.
  */
 public class DataManager implements DataAccessor {
-    private TodoSystem todoSystem;
+    private TodoSystem todoSystem = new TodoSystem();
 
     /**
      * This function reads data from local files and initializes todoSystem.
@@ -24,11 +24,9 @@ public class DataManager implements DataAccessor {
             fileIn.close();
             System.out.println("Data has been loaded successfully.");
         } catch (IOException i) {
-            System.out.println("Local data not found. We are creating a new empty system.");
-            this.todoSystem = new TodoSystem();
+            System.out.println("Local data not found. We are starting with a new empty system.");
         } catch (ClassNotFoundException c) {
-            System.out.println("TodoSystem class not found. We are creating a new empty system.");
-            this.todoSystem = new TodoSystem();
+            System.out.println("TodoSystem class not found. We are starting with a new empty system.");
         }
     }
 
