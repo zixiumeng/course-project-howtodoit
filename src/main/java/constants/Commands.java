@@ -18,6 +18,7 @@ public class Commands {
         COMMANDS.put("upcoming", new Upcoming());
         COMMANDS.put("completetask", new CompleteTask());
         COMMANDS.put("star", new Star());
+        COMMANDS.put("unstar", new Unstar());
         COMMANDS.put("rename", new Rename());
         COMMANDS.put("retime", new Retime());
         COMMANDS.put("redesc", new Redesc());

@@ -26,4 +26,4 @@ public class DelTaskLab implements Executable {
 
         return "Task <" + taskName + "> has been removed from label <" + labName + "> successfully.";
     }
-} 
+}
