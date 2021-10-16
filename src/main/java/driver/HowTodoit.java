@@ -12,7 +12,7 @@ public class HowTodoit {
     public static void main(String[] args) {
         System.out.println("Welcome to HowTodoit: our virtual to-do-list system (version 0).");
 
-        // Initialize DataManager, CommandExecuter, and all commands
+        // Initialize DataManager, CommandExecutor, and all commands
         DataManager dataManager = new DataManager();
         CommandExecutor commandExecutor = new CommandExecutor();
         Commands.loadCommands();
