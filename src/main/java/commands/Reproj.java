@@ -26,9 +26,6 @@ public class Reproj implements Executable {
         Project newProj = todoSystem.getProjects().get(projName); // Get new project
         newProj.addTask(task); // Add task to new project
         task.setProject(newProj);
-        return "Task successfully moved to a different project.";
+        return "Task <"+ taskName + "> has been successfully moved to project <" + projName + ">.";
     }
-
-//    private void checkArgs(TodoSystem todoSystem, String[] args) {
-//    }
 }

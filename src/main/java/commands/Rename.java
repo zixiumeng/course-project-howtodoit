@@ -20,7 +20,7 @@ public class Rename implements Executable{
         // Map user arguments to old name, new name
         String name1 = args[0];
         String name2 = args[1];
-
+        // Get task and rename it
         Task task = todoSystem.getTasks().get(name1);
         task.setName(name2);
 

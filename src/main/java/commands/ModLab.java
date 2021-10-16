@@ -1,16 +1,16 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Project;
+import todoSystem.Label;
 import todoSystem.TodoSystem;
 
-public class ModProj implements Executable{
+public class ModLab implements Executable{
     /**
-     * This function executes the modproj command: change a project’s name from <name1> to <name2>
-     * The project must already exist in the system.
+     * This function executes the modlab command: change a label’s name from <name1> to <name2>
+     * The label must already exist in the system.
      *
      * @param args a String, representing user arguments
-     * @return a String indicating a project name has been changed
+     * @return a String indicating a label name has been changed
      */
     @Override
     public String execute(DataAccessor dataAccessor, String[] args){
@@ -20,10 +20,10 @@ public class ModProj implements Executable{
         // Map user arguments to old name, new name
         String name1 = args[0];
         String name2 = args[1];
-        // Get project and rename it
-        Project project = todoSystem.getProjects().get(name1);
-        project.setName(name2);
+        // Get label and rename it
+        Label label = todoSystem.getLabels().get(name1);
+        label.setName(name2);
 
-        return "Project <" + name1 + "> has been renamed to <" + name2 + "> successfully.";
+        return "Label <" + name1 + "> has been renamed to <" + name2 + "> successfully.";
     }
 }

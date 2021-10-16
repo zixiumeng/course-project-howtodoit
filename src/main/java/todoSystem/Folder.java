@@ -27,6 +27,10 @@ public class Folder implements Serializable {
         this.name = name;
     }
 
+    public HashMap<String, Task> getTasks() {
+        return tasks;
+    }
+
     public void addTask(Task task) {
         this.tasks.put(task.getName(), task);
     }
@@ -48,7 +52,7 @@ public class Folder implements Serializable {
     }
 
     public boolean add_task(Task t, List<Task> list) {
-        for (Task item: list) {
+        for (Task item : list) {
             if (LocalDate.parse(t.getDueDate()).isBefore(LocalDate.parse(item.getDueDate()))) {
                 list.add(list.indexOf(item), t);
                 return true;

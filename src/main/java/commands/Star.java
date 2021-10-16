@@ -5,7 +5,7 @@ import todoSystem.Label;
 import todoSystem.Task;
 import todoSystem.TodoSystem;
 
-public class StarTask implements Executable{
+public class Star implements Executable{
     /**
      * This function executes the star command: Add a task called <name> to Starred label
      * The task must already exist in the system.
