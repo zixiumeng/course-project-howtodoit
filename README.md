@@ -1,6 +1,5 @@
-## Replace this README.md!
+HowTodoit - a simple to do list app written in java
 
-This is a standard README.md file for you to replace. You'll want to include your own content here!
+HowTodoit is a to-do list app written in java. The user will be able to interact with a virtual task manager (via command line) that is able to load data from and save data into local history (using Java’s Serializable interface).
 
-MD (Markdown) files use [Markdown formatting](https://guides.github.com/features/mastering-markdown/): 
-these look very much like .txt files, so you can write them in a very similar way.
+The app right now is only a skeleton app. The final app will be built using gradle to a JAR file and run under JRE. It will has a CLI. We will add a GUI (and more features) in later phases of the project if time allows.
