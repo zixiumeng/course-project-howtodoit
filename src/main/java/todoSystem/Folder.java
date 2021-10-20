@@ -1,26 +1,35 @@
 package todoSystem;
 
+import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
 
 /**
- *
+ * This class stores a collection of tasks.
  */
-public class Folder {
+public class Folder implements Serializable {
     private String name;
-    private HashMap<String, Task> tasks;
-    private boolean renameable;
+    private final HashMap<String, Task> tasks = new HashMap<>();
+    private final boolean isProj;
 
-    public Folder(String name, boolean renameable) {
+    public Folder(String name, boolean isProj) {
         this.name = name;
-        this.renameable = renameable;
+        this.isProj = isProj;
     }
 
-    public void addTask(Task task) {
-        this.tasks.put(task.getName(), task);
+    public String getName() {
+        return this.name;
     }
 
-    public List<Task> viewTasks() {
-        return null;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public HashMap<String, Task> getTasks() {
+        return this.tasks;
+    }
+
+    public boolean getIsProj() {
+        return isProj;
+    }
+
 }
